@@ -1,0 +1,55 @@
+{% extends 'capstone/layout.html' %} 
+{% load static %} 
+
+{% block body %}
+    <div class="container">
+        <div id="quiz">
+            <div id="quizWrapper">
+                <br>
+                <button id="startQuiz" class="btn btn-dark">Start Quiz</button>
+                <hr id="quizLine">
+                <b id="ALLquizname">{{quiz.name}}</b>
+            </div>
+        </div>
+    </div>
+    <div id="container">
+        <div id="questions">
+            <div id="info">
+                <h6 id="NumberofQuestions"><span id="currentNumber"></span> of <span id="totalNumber"></span></h6>
+                <h6 id="Score">Score:<span id="scoreCount">0</span></h6>
+            </div>
+            <div id="quizQuestion">
+                <p id="query"></p>
+                <br>
+                <div id="answers">
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-dark" id="finishQuiz">Finish </button>
+        <button class="btn btn-dark" id="nextQuestion">Next &#8594;</button>
+    </div>
+
+    <div id="endContainer">
+        <div id="endWrapper">
+            <div id="endSections">
+                <button id="endScore">Score</button> 
+                <button id="endAnswers">Answers</button>
+            </div>
+            <div id="endTabs">
+                <div id="scoreTab">
+                    <div id="questionsAnsweredCorrectly"></div>
+                    <div id="actualScore"></div>
+                </div>
+                <div id="answerTab">
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block style %} 
+
+    <link href="{% static 'capstone/quiz.css' %}" rel="stylesheet">
+    <script src="{% static 'capstone/quiz.js' %}"></script>
+{% endblock %}

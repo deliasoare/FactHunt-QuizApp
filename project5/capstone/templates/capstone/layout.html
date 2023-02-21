@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title> Capstone </title>
+        <link href="{% static 'capstone/style.css' %}" rel="stylesheet">
+        {% if profile.preferenceBg == 'default' or profile == 'none' %}
+          <link id="theme" href="{% static 'capstone/default.css' %}" rel="stylesheet">
+        {% elif profile.preferenceBg == 'yellow' %}
+          <link id="theme" href="{% static 'capstone/yellow.css' %}" rel="stylesheet">
+        {% endif %}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet"/>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+        <script>
+            let yellow = "{% static 'capstone/yellow.css' %}";
+            let Default = "{% static 'capstone/default.css' %}";
+            let username = "{{request.user.username}}";
+        </script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+      {% block style %}
+
+      {% endblock %}
+    </head>
+    <body id="body">
+        <nav id="navbar" class="navbar navbar-expand-lg navbar-light " >
+            <div class="container-fluid">
+                <a class="navbar-brand" id="indexButton" href="{% url 'index' %}"> FactHunt </a>
+                <!-- Dropdown -->
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
+                  <li id="item" class="nav-item  me-3 me-lg-0">
+                      <a class="nav-link" href="{% url 'allProjects' %}"> All Projects </a>
+                  </li>
+                  <li id="item" class="nav-item">
+                    <a class="nav-link" href="{% url 'createQuiz' %}">Create Quiz</a>
+                  </li> 
+                {% endif %}
+              </ul>
+              <div class="dropdown" id="wtd">
+                <a class="dropdown-toggle d-flex justify-content-end hidden-arrow " href="" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                  {% if profile.profilePic %}
+                    <img src="/media/{{profile.profilePic}}" class="rounded-circle" height="25" loading="lazy"/>
+                  {% else %}
+                    <img src="/media/media/nophoto.jpg" class="rounded-circle" height="25" loading="lazy"/>
+                  {% endif %}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                    {% if user.is_authenticated %}
+                        <li>
+                          <a class="dropdown-item" href="{% url 'profileRender' %}">My profile</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a class="dropdown-item" href="{% url 'register' %}">Register</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+              </div>
+              </ul>
+            </div>
+          </nav>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

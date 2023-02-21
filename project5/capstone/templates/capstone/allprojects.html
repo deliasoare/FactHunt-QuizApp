@@ -1,0 +1,22 @@
+{% extends 'capstone/layout.html' %}
+{% load static %}
+
+{% block body %}
+<div id="ALLquizzes">
+    {% for quiz in quizzes %} 
+        <br>
+        <a id="ALLquiz" href="{% url 'getQuiz' name=quiz.name %}">
+            <br>
+            <hr>
+            <b id="ALLquizname">{{quiz.name}}</b>
+        </a>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block style %} 
+
+<link href="{% static 'capstone/allprojects.css' %}" rel="stylesheet"> 
+
+{% endblock %}

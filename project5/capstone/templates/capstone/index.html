@@ -1,0 +1,20 @@
+{% extends 'capstone/layout.html' %}
+{% load static %}
+
+{% block body %}
+    
+    <div id="index">
+        {% if request.user.is_authenticated %}
+            <h4 id="username" class="{{request.user.username}}"> Welcome, {{request.user.username}}!</h4>
+            <p> We hope that you enjoy this website and make good use of it. To give you some basic guidelines, there are two main functions you can use:</p>
+            <p>1) Trying quizzes out. There may be many quizzes that are created anonimously by other users, which you can access and try to answer their questions. After completing each quiz and pressing the "Finish" button, you will get both your score, which will add up to your overall score, but also an overview of the answers you gave.</p>
+            <p>2) If you have accumulated 1000 points, a new option opens up for you. You are now able to create quizzes anonimously, similar to the ones you tested out before. You can now create quizzes with the lessons you have to study in order to, say, test yourself days before the actual tests you have to take in your academic institution.</p>
+        {% else %}
+            <h4>Hello, you look new around here!</h4>
+            <p> This website is mainly meant for students to practice their skills by both creating and completing quizzes made by others, but it can aid in the mastering of many subjects, be they academic or not. We hope to have raised your interest to check out the amazing material.</p>
+            <p>If we have, we invite you to either <a href="{% url 'register' %}">Sign up</a> or <a href="{% url 'login' %}">Sign in</a>. Have Fun!</p>
+        {% endif %}
+    </div>
+
+
+{% endblock %}

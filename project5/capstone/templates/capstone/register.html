@@ -1,0 +1,28 @@
+{% extends 'capstone/layout.html' %} 
+{% load static %}
+
+{% block style %} 
+    <link href="{% static 'capstone/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+{% if message %} 
+    {{message}}
+{% endif %}
+<div id="parent">
+        <form id="registerForm" method="post" action="{% url 'register' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input class="Input" type="text" placeholder="Username" name="username">
+            <br>
+            <input class="Input" type="password" placeholder="Password" name="password">
+            <br>
+            <input class="Input" type="password" placeholder="Confirmation" name="confirmation">
+            <br>
+            <input class="InputPicture" type="file" name="picture" accept="image/png, image/jpeg">
+            <br>
+            <input id="Submit" class="btn btn-info" type="submit">
+        </form>
+</div>
+
+
+{% endblock %}

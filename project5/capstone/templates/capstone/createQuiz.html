@@ -1,0 +1,59 @@
+{% extends 'capstone/layout.html' %}
+{% load static %}
+
+{% block body %} 
+    <div id="quizForm">
+        <div id="quizSpace">
+            <div id="messages"></div>
+            <div id="spaceNewQuiz">
+                <h3 id="newQuiz">New Quiz</h3> 
+            </div>
+            <button class="btn btn-primary btn-sm" id="addQuestion">Add a question</button>
+
+            <div id="questions">
+
+            </div>
+            <button id="saveQuiz" disabled class="btn btn-dark">Save Quiz</button>
+        </div>
+    
+        <div style="margin:20px; padding:20px;" id="addQuestionForm" class="modal">
+            <div class="modal-content">
+                <span id="closeForm">&times;</span>
+                <div id="warningNone" class="alert alert-danger"> </div>
+                <div id="questionSpace">
+                    <textarea id="questionArea" placeholder="Write a question here"></textarea>
+                    <br>
+                    <h6>Answers</h6>
+                    
+                    <div id="answerSpace">
+                        <div id="answer">
+                            <b id="count">1</b>
+                            <input id="answerPrompt" type="text">
+                            <input type="checkbox" id="actualAnswer">
+                            correct
+                            <span id="closeAnswer">&times;</span>
+                        </div>
+                        <div id="answer">
+                            <b id="count">2</b>
+                            <input id="answerPrompt" type="text">
+                            <input type="checkbox" id="actualAnswer">
+                            correct
+                            <span id="closeAnswer">&times;</span>
+                        </div>
+                        <br>
+                    </div>
+                    <div id="quizButtons">
+                        <button id="addAnswers" class="btn btn-dark">Add Answer</button> 
+                        <button class="btn btn-dark" id="appendQuestion">Add Question</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block style %}
+    <script src="{% static 'capstone/createQuiz.js' %}"></script>
+    <link href="{% static 'capstone/style.css' %}" rel="stylesheet">
+{% endblock %}

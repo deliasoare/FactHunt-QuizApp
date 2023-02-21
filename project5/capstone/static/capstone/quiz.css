@@ -1,0 +1,234 @@
+
+#quiz {
+    display:block;
+}
+#questions {
+    display:none;
+}
+#quizImage {
+    border:1px grey outset;
+    max-width:100px;
+}
+
+#quizWrapper {
+    text-align:center;
+    border: 2px solid grey;
+    border-radius:25px;
+    display:flex;
+    justify-content:center;
+    min-width:300px;
+    max-width:700px;
+    align-items:center;
+    flex-direction:column;
+    background-color:lightyellow;
+}
+
+#quizLine {
+    width:50%;
+}
+
+#quiz {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-width:900px;
+    position: relative;
+    margin:30px 10px;
+    padding:20px 15px;
+}
+
+.container {
+    position:relative;
+    max-width:1100px;
+    margin-top:8%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+#container, #endContainer {
+    margin:20px;
+}
+#info {
+    display:inline-flex;
+    width:100%;
+    justify-content:space-evenly;
+}
+#NumberofQuestions {
+    position:relative;
+    display:unset;
+}
+#Score {
+    align-items:right;
+    position:relative;
+}
+#quizQuestion, #scoreTab {
+    bottom:0;
+    position:relative;
+    width:100%;
+    min-height:185px;
+    border:1px black solid;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    background-color: rgba(0, 0, 0, 0);
+    border-top:1px solid #ddd;
+    border-left:none;
+    border-right:none;
+    border-bottom:none;
+    justify-content:center;
+
+}
+#scoreTab {
+    border-top:none;
+}
+#questions, #endWrapper {
+    max-width:750px;
+    min-height:250px;
+    border:1px solid #ddd;
+    border-radius:.3em;
+    box-shadow:10px 10px 30px rgba(0,0,0,0.1);
+    padding:0px;
+    margin:20px;
+    display:flex;
+    align-items:flex-end;
+    margin:10px auto;
+    background-color:white;
+}
+#endWrapper {
+    max-width:none;
+    min-height:unset;
+}
+#endWrapper {
+    align-items:flex-start;
+    justify-content:center;
+    flex-direction:column;
+}
+#answers {
+    display: grid;
+    grid-gap:1rem;
+    padding: 1rem;
+}
+@media (min-width:672px) {
+    #answers {
+        grid-template-columns: repeat(2, minmax(240px, 1fr));
+    }
+}
+@media (max-width:672px) {
+    #answers {
+        grid-template-columns: repeat(1, minmax(150px, 1fr));
+    }
+
+}
+#answers > div {
+    border:1px solid #ddd;
+    text-align:center;
+    max-width:400px;
+    border-radius:.3em;
+    position:relative;
+    height:100%;
+}
+#nextQuestion, #finishQuiz {
+    margin:20px;
+    float:right;
+    display:none;
+}
+
+#answer:hover, #normalAnswer {
+    border:1px solid gray;
+    background-color: lightgray;
+    
+}
+#answer:hover {
+    cursor:pointer;
+}
+#correctAnswer {
+    border:1px solid green !important;
+    animation: pop 0.3s linear 1;
+}
+#wrongAnswer {
+    border:1px solid red !important;
+    animation:shake-animation 0.3s linear 1;
+    background-color:#FFCCCB;
+}
+@keyframes pop{
+    50%  {transform: scale(1.1);}
+}
+@keyframes shake-animation {
+    0% { transform:translate(0,0) }
+   1.78571% { transform:translate(5px,0) }
+   3.57143% { transform:translate(0,0) }
+   5.35714% { transform:translate(5px,0) }
+   7.14286% { transform:translate(0,0) }
+   8.92857% { transform:translate(5px,0) }
+   10.71429% { transform:translate(0,0) }
+   100% { transform:translate(0,0) }
+ }
+ #endContainer {
+    display:none;
+ }
+ #endScore, #endAnswers, #scoreSelected, #answersSelected {
+    overflow: visible;
+    border:none;
+    border-bottom:1px solid lightblue;
+    background-color:white;
+    width:50%;
+ }
+ #scoreSelected, #answersSelected {
+    border-bottom:1px solid darkblue;
+ }
+ #endSections {
+    display:inline-flex;
+    width:100%;
+    min-height:50px;
+    max-height:100px;
+    justify-content:space-evenly;
+ }
+ #scoreTab{
+    width:100%;
+    justify-content:center;
+    align-items: center;
+    flex-direction:column;
+ }
+ 
+#questionsAnsweredCorrectly {
+    font-size:50px;
+    width:50%;
+    padding:0px;
+    display:flex;
+    justify-content:center;
+ }
+ @media (max-width:400px) {
+    #questionsAnsweredCorrectly {
+        font-size:30px;
+    }
+}
+ #actualScore {
+    font-size:17px;
+ }
+ #endTabs{
+    width:100%;
+ }
+
+ #answerTab {
+    display:none;
+    display:flex;
+    flex-direction:column;
+ }
+ #endHeader {
+    display:inline;
+    width:100%;
+ }
+ #endQuestion {
+    margin:20px;
+    width:100%;
+ }
+
+#correctEndAnswer {
+    color: green;
+}
+#wrongEndAnswer {
+    color:red;
+}
+#endCount {
+    margin-right:5%;
+}

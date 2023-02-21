@@ -1,0 +1,29 @@
+{% extends 'capstone/layout.html' %} 
+{% load static %}
+
+{% block style %} 
+    <link href="{% static 'capstone/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+    {% if message %} 
+        {{message}}
+    {% endif %}
+    {% if user.is_authenticated %} 
+        <h4> First log out to be able to log in another account!</h4>
+    {% else %}
+    <div id="parent">
+        <form id="loginForm" method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <input class="Input" name="username" placeholder="Username" type="text" autofocus>
+            <br>
+            <input class="Input" class="2"name="password" placeholder="Password" type="password">
+            <br>
+            <input id="Submit" class="btn btn-info" type="submit">
+        </form>
+    </div>
+    {% endif %}
+
+
+{% endblock %}
