@@ -35,7 +35,7 @@ The 'templates' folder contains all the HTML files used.
 The other files are basic Django files, that were default when the application was created, apart from 'context_processors.py' and 'serialisers.py', the first one of which allows the 'layout.html' file to have access to the profile of the user that is registered, in order to load the correct background colors that the user has picked out beforehand. 'Serializers.py' was applied in order to convert the 'Answers' model to JSON successfully.
 
 ## Run the project
-In terms of running, the project is extremely similar to others done before, requiring just the 'python manage.py runserver' command.
+In terms of running, the project requires django, which you can obtain by running 'pip install django' in the terminal. To run the project, all you have to type is 'python manage.py runserver'.
 
 
 
